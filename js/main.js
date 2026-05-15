@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Scroll-triggered fade-up ──
   const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
+  window._fadeObserver = io;
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 });

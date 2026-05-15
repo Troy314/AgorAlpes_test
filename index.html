@@ -6,92 +6,11 @@
   <title>Agora des Sciences · AurorAlpes</title>
   <meta name="description" content="L'Agora des Sciences, un événement de partage et de rencontres scientifiques organisé par AurorAlpes à Grenoble.">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* ── CAROUSEL (needed on index too) ── */
-    .carousel-section {
-      background: var(--azur-fonce);
-      padding: 4rem 0 3rem;
-    }
-    .carousel-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      padding: 0 clamp(1.5rem,5vw,3rem);
-    }
-    .carousel-header .section-label { color: var(--orange); }
-    .carousel-header h2 { color: #fff; margin-top: .5rem; }
-
-    .carousel-wrapper { position: relative; overflow: hidden; }
-    .carousel-track {
-      display: flex;
-      gap: 1.5rem;
-      transition: transform .45s cubic-bezier(.4,0,.2,1);
-      will-change: transform;
-      padding: 0 clamp(1.5rem,5vw,3rem);
-      align-items: stretch;
-    }
-    .carousel-slide {
-      flex: 0 0 min(280px, 72vw);
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      transition: transform .25s, box-shadow .25s;
-      cursor: default;
-    }
-    .carousel-slide.clickable { cursor: pointer; }
-    .carousel-slide:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
-    .carousel-slide img {
-      width: 100%;
-      aspect-ratio: 1080 / 1350;
-      object-fit: cover;
-      display: block;
-    }
-    .carousel-slide-placeholder {
-      width: 100%;
-      aspect-ratio: 1080 / 1350;
-      background: linear-gradient(160deg, rgba(255,162,90,.10) 0%, rgba(255,255,255,.03) 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: .6rem;
-      color: rgba(255,255,255,.25);
-      font-size: .78rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .carousel-slide-placeholder .ph-icon { font-size: 2.4rem; opacity: .4; }
-
-    .carousel-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.8rem;
-    }
-    .carousel-btn {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,.22);
-      background: transparent;
-      color: #fff;
-      font-size: 1rem;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: border-color .2s, background .2s, color .2s;
-    }
-    .carousel-btn:hover { border-color: var(--orange); background: rgba(255,162,90,.12); color: var(--orange); }
-    .carousel-dots { display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center; max-width: 300px; }
-    .carousel-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.22);
-      cursor: pointer;
-      transition: background .2s, transform .2s;
-      border: none; padding: 0; flex-shrink: 0;
-    }
-    .carousel-dot.active { background: var(--orange); transform: scale(1.35); }
-  </style>
+  <link rel="icon" type="image/x-icon" href="media/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="media/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="media/favicon/site.webmanifest">
 </head>
 <body data-root-prefix="">
   <div id="nav-root"></div>
