@@ -51,12 +51,6 @@
     <section>
       <div class="section-inner">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem;flex-wrap:wrap;">
-          <div style="background:var(--orange);color:var(--azur-fonce);border-radius:40px;padding:.4rem 1rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;">
-            📅 16 Juin
-          </div>
-          <div style="color:var(--mid);font-size:.9rem;font-weight:300;">Amphithéâtre Wilfrid Kilian, ISTerre · Grenoble, Isère · Journée complète</div>
-        </div>
-
         <div class="timetable" id="timetable">
           <div class="timetable-loading">Chargement du programme…</div>
         </div>
@@ -104,7 +98,7 @@
   function sessionLabel(slot) {
     const h = parseInt(slot.heure);
     if (h >= 10 && h < 12) return 'Session 1 · Matin';
-    if (h >= 14 && h < 16) return 'Session 2 · Après-midi';
+    if (h >= 13 && h < 16) return 'Session 2 · Après-midi';
     return null;
   }
 
