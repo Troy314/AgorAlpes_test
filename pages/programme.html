@@ -5,201 +5,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programme · Agora des Sciences</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ════════════════════════════════
+       CAROUSEL
+    ════════════════════════════════ */
+    .carousel-section {
+      background: var(--azur-fonce);
+      padding: 4rem 0 3rem;
+    }
+    .carousel-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding: 0 clamp(1.5rem,5vw,3rem);
+    }
+    .carousel-header h2 { color: #fff; margin-top: .5rem; }
+
+    .carousel-wrapper { position: relative; overflow: hidden; }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+      padding: 0 clamp(1.5rem,5vw,3rem);
+      align-items: stretch;
+    }
+
+    /* slide = pure image, 1080×1350 ratio (4:5) */
+    .carousel-slide {
+      flex: 0 0 min(280px, 72vw);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      transition: transform .25s, box-shadow .25s;
+      cursor: default;
+    }
+    .carousel-slide.clickable { cursor: pointer; }
+    .carousel-slide:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+
+    .carousel-slide img {
+      width: 100%;
+      aspect-ratio: 1080 / 1350;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-slide-placeholder {
+      width: 100%;
+      aspect-ratio: 1080 / 1350;
+      background: linear-gradient(160deg, rgba(255,162,90,.10) 0%, rgba(255,255,255,.03) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      color: rgba(255,255,255,.25);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .carousel-slide-placeholder .ph-icon { font-size: 2.4rem; opacity: .4; }
+
+    /* controls */
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    .carousel-btn {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.22);
+      background: transparent;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, background .2s, color .2s;
+    }
+    .carousel-btn:hover {
+      border-color: var(--orange);
+      background: rgba(255,162,90,.12);
+      color: var(--orange);
+    }
+    .carousel-dots { display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center; max-width: 300px; }
+    .carousel-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.22);
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      border: none; padding: 0;
+      flex-shrink: 0;
+    }
+    .carousel-dot.active { background: var(--orange); transform: scale(1.35); }
+
+    /* ════════════════════════════════
+       TIMETABLE EXTRAS
+    ════════════════════════════════ */
+    .timetable-loading {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--mid);
+      font-size: .95rem;
+    }
+    .session-divider {
+      margin: 2rem 0 .8rem;
+      padding-left: calc(82px + 2rem);
+    }
+    .session-divider span {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      border-top: 1px solid var(--border);
+      padding-top: .8rem;
+      display: block;
+    }
+  </style>
 </head>
 <body data-root-prefix="../">
   <div id="nav-root"></div>
 
   <main class="page">
 
-    <!-- HEADER -->
+    <!-- ── HEADER ── -->
     <section style="background:var(--azur-fonce);color:#fff;padding:calc(var(--nav-h) + 3.5rem) clamp(1.5rem,5vw,3rem) 3.5rem;position:relative;overflow:hidden;">
       <div style="position:absolute;right:-60px;top:-60px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(255,162,90,.15),transparent 70%);"></div>
       <div class="section-inner" style="position:relative;z-index:1;">
         <span class="section-label">Timetable</span>
         <h1 class="section-title" style="color:#fff;font-size:clamp(2.2rem,5vw,3.8rem);">Programme</h1>
         <p style="color:rgba(255,255,255,.65);font-size:1.05rem;max-width:580px;line-height:1.8;font-weight:300;margin-bottom:2rem;">
-          Le programme est en cours de finalisation. Les contributions seront annoncées prochainement. 
+          Le programme est en cours de finalisation. Les contributions seront annoncées prochainement.
           Voici la structure indicative de la journée.
         </p>
-        <!-- LEGEND -->
-        <div style="display:flex;flex-wrap:wrap;gap:.6rem;">
-          <span class="slot-type type-conf" style="margin:0;">Conférence</span>
-          <span class="slot-type type-table" style="margin:0;">Table ronde</span>
-          <span class="slot-type type-atelier" style="margin:0;">Atelier</span>
-          <span class="slot-type type-poster" style="margin:0;">Poster</span>
-          <span class="slot-type type-pause" style="margin:0;background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);">Pause</span>
-        </div>
       </div>
     </section>
 
-    <!-- TIMETABLE -->
+    <!-- ── CAROUSEL DES INTERVENTIONS ── -->
+    <section class="carousel-section">
+      <div class="carousel-header">
+        <span class="section-label">Interventions</span>
+        <h2 class="section-title">Les interventions</h2>
+      </div>
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- populated by JS from CSV -->
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carouselPrev" aria-label="Précédent">&#8592;</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="carouselNext" aria-label="Suivant">&#8594;</button>
+      </div>
+    </section>
+
+    <!-- ── TIMETABLE ── -->
     <section>
       <div class="section-inner">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem;flex-wrap:wrap;">
           <div style="background:var(--orange);color:var(--azur-fonce);border-radius:40px;padding:.4rem 1rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;">
-            📅 Date à confirmer
+            📅 16 Juin
           </div>
-          <div style="color:var(--mid);font-size:.9rem;font-weight:300;">Grenoble, Isère · Journée complète</div>
+          <div style="color:var(--mid);font-size:.9rem;font-weight:300;">Amphithéâtre Wilfrid Kilian, ISTerre · Grenoble, Isère · Journée complète</div>
         </div>
 
-        <div class="timetable">
-
-          <!-- 09h00 -->
-          <div class="time-slot fade-up">
-            <div class="slot-time">09h00</div>
-            <div class="slot-card break">
-              <h3>☕ Accueil des participant·e·s & café</h3>
-            </div>
-          </div>
-
-          <!-- 09h30 -->
-          <div class="time-slot fade-up">
-            <div class="slot-time">09h30</div>
-            <a href="contributions/ouverture.html" class="slot-card">
-              <span class="slot-type type-conf">Conférence inaugurale</span>
-              <span class="slot-arrow">→</span>
-              <h3>Ouverture de l'Agora des Sciences</h3>
-              <div class="speaker">AurorAlpes — Mot de bienvenue et présentation de l'événement</div>
-            </a>
-          </div>
-
-          <!-- 10h00 SESSION 1 -->
-          <div style="margin:2rem 0 .8rem;padding-left:calc(82px + 2rem);" class="fade-up">
-            <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);border-top:1px solid var(--border);padding-top:.8rem;display:block;">Session 1 · Matin</span>
-          </div>
-
-          <div class="time-slot fade-up">
-            <div class="slot-time">10h00</div>
-            <a href="contributions/contrib-1.html" class="slot-card">
-              <span class="slot-type type-conf">Conférence</span>
-              <span class="slot-arrow">→</span>
-              <h3>Contribution #1 — À confirmer</h3>
-              <div class="speaker">Intervenant·e à venir · Domaine à définir</div>
-            </a>
-          </div>
-
-          <div class="time-slot fade-up">
-            <div class="slot-time">10h30</div>
-            <a href="contributions/contrib-2.html" class="slot-card">
-              <span class="slot-type type-conf">Conférence</span>
-              <span class="slot-arrow">→</span>
-              <h3>Contribution #2 — À confirmer</h3>
-              <div class="speaker">Intervenant·e à venir · Domaine à définir</div>
-            </a>
-          </div>
-
-          <div class="time-slot fade-up">
-            <div class="slot-time">11h00</div>
-            <a href="contributions/contrib-3.html" class="slot-card">
-              <span class="slot-type type-conf">Conférence</span>
-              <span class="slot-arrow">→</span>
-              <h3>Contribution #3 — À confirmer</h3>
-              <div class="speaker">Intervenant·e à venir · Domaine à définir</div>
-            </a>
-          </div>
-
-          <!-- 11h30 pause -->
-          <div class="time-slot fade-up">
-            <div class="slot-time">11h30</div>
-            <div class="slot-card break"><h3>☕ Pause café & session posters</h3></div>
-          </div>
-
-          <div class="time-slot fade-up">
-            <div class="slot-time">11h45</div>
-            <a href="contributions/table-ronde-1.html" class="slot-card">
-              <span class="slot-type type-table">Table ronde</span>
-              <span class="slot-arrow">→</span>
-              <h3>Table ronde #1 — Thématique à définir</h3>
-              <div class="speaker">Plusieurs intervenant·e·s · Durée : 45 min</div>
-            </a>
-          </div>
-
-          <!-- 12h30 DÉJEUNER -->
-          <div class="time-slot fade-up">
-            <div class="slot-time">12h30</div>
-            <div class="slot-card break"><h3>🍽️ Déjeuner & networking</h3></div>
-          </div>
-
-          <!-- SESSION 2 -->
-          <div style="margin:2rem 0 .8rem;padding-left:calc(82px + 2rem);" class="fade-up">
-            <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);border-top:1px solid var(--border);padding-top:.8rem;display:block;">Session 2 · Après-midi</span>
-          </div>
-
-          <div class="time-slot fade-up">
-            <div class="slot-time">14h00</div>
-            <a href="contributions/contrib-4.html" class="slot-card">
-              <span class="slot-type type-conf">Conférence</span>
-              <span class="slot-arrow">→</span>
-              <h3>Contribution #4 — À confirmer</h3>
-              <div class="speaker">Intervenant·e à venir · Domaine à définir</div>
-            </a>
-          </div>
-
-          <div class="time-slot fade-up">
-            <div class="slot-time">14h30</div>
-            <a href="contributions/contrib-5.html" class="slot-card">
-              <span class="slot-type type-conf">Conférence</span>
-              <span class="slot-arrow">→</span>
-              <h3>Contribution #5 — À confirmer</h3>
-              <div class="speaker">Intervenant·e à venir · Domaine à définir</div>
-            </a>
-          </div>
-
-          <div class="time-slot fade-up">
-            <div class="slot-time">15h00</div>
-            <a href="contributions/contrib-6.html" class="slot-card">
-              <span class="slot-type type-atelier">Atelier</span>
-              <span class="slot-arrow">→</span>
-              <h3>Atelier #1 — À confirmer</h3>
-              <div class="speaker">Format participatif · Places limitées</div>
-            </a>
-          </div>
-
-          <!-- Pause -->
-          <div class="time-slot fade-up">
-            <div class="slot-time">15h45</div>
-            <div class="slot-card break"><h3>☕ Pause & session posters</h3></div>
-          </div>
-
-          <div class="time-slot fade-up">
-            <div class="slot-time">16h00</div>
-            <a href="contributions/table-ronde-2.html" class="slot-card">
-              <span class="slot-type type-table">Table ronde</span>
-              <span class="slot-arrow">→</span>
-              <h3>Table ronde #2 — Thématique à définir</h3>
-              <div class="speaker">Plusieurs intervenant·e·s · Durée : 45 min</div>
-            </a>
-          </div>
-
-          <!-- Clôture -->
-          <div class="time-slot fade-up">
-            <div class="slot-time">17h00</div>
-            <a href="contributions/cloture.html" class="slot-card">
-              <span class="slot-type type-conf">Clôture</span>
-              <span class="slot-arrow">→</span>
-              <h3>Clôture & mot de fin</h3>
-              <div class="speaker">AurorAlpes</div>
-            </a>
-          </div>
-
-          <!-- Cocktail -->
-          <div class="time-slot fade-up">
-            <div class="slot-time">17h30</div>
-            <div class="slot-card break"><h3>🥂 Cocktail de clôture & networking libre</h3></div>
-          </div>
-
+        <div class="timetable" id="timetable">
+          <div class="timetable-loading">Chargement du programme…</div>
         </div>
-
-        <!-- CTA soumettre contribution -->
-        <div style="margin-top:4rem;background:var(--azur-fonce);border-radius:24px;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;" class="fade-up">
-          <div>
-            <h3 style="font-family:'Nunito',sans-serif;font-weight:900;color:#fff;font-size:1.2rem;text-transform:uppercase;margin-bottom:.5rem;">Vous souhaitez contribuer ?</h3>
-            <p style="color:rgba(255,255,255,.65);font-size:.9rem;font-weight:300;max-width:480px;">Le programme est en cours de construction. Contactez-nous si vous souhaitez proposer une conférence, une table ronde ou un atelier.</p>
-          </div>
-          <a href="contact.html" class="btn btn-primary">Nous contacter</a>
-        </div>
-
-      </div>
     </section>
 
   </main>
@@ -207,5 +184,215 @@
   <div id="footer-root"></div>
   <script src="../js/components.js"></script>
   <script src="../js/main.js"></script>
+  <script>
+  /* ═══════════════════════════════════════════════════════════════
+     Programme loader — reads ../programme.csv
+     CSV columns: heure, type, titre, intervenant, lien, image
+  ═══════════════════════════════════════════════════════════════ */
+
+  const CSV_URL = '../programme.csv';
+
+  const TYPE_MAP = {
+    conf:    { label: 'Conférence',  cls: 'type-conf'    },
+    table:   { label: 'Table ronde', cls: 'type-table'   },
+    atelier: { label: 'Atelier',     cls: 'type-atelier' },
+    poster:  { label: 'Poster',      cls: 'type-poster'  },
+    pause:   { label: 'Pause',       cls: 'type-pause'   },
+  };
+
+  /* ── CSV parser (handles quoted fields) ── */
+  function parseCSV(raw) {
+    const lines = raw.trim().split('\n');
+    const headers = lines[0].split(',').map(s => s.trim().replace(/\r/g,''));
+    return lines.slice(1).filter(l => l.trim()).map(line => {
+      const vals = [];
+      let cur = '', inQ = false;
+      for (const c of line) {
+        if (c === '"')           { inQ = !inQ; }
+        else if (c === ',' && !inQ) { vals.push(cur.trim()); cur = ''; }
+        else                     { cur += c; }
+      }
+      vals.push(cur.trim().replace(/\r/g,''));
+      return Object.fromEntries(headers.map((h, i) => [h, vals[i] ?? '']));
+    });
+  }
+
+  /* ── Session banner logic ── */
+  function sessionLabel(slot) {
+    const h = parseInt(slot.heure);
+    if (h >= 10 && h < 12) return 'Session 1 · Matin';
+    if (h >= 14 && h < 16) return 'Session 2 · Après-midi';
+    return null;
+  }
+
+  /* ── Build timetable ── */
+  function buildTimetable(slots) {
+    const container = document.getElementById('timetable');
+    container.innerHTML = '';
+    let lastSession = null;
+
+    slots.forEach(slot => {
+      /* session divider */
+      const sess = sessionLabel(slot);
+      if (sess && sess !== lastSession) {
+        lastSession = sess;
+        const div = document.createElement('div');
+        div.className = 'session-divider fade-up';
+        div.innerHTML = '<span>' + sess + '</span>';
+        container.appendChild(div);
+      }
+
+      const wrap = document.createElement('div');
+      wrap.className = 'time-slot fade-up';
+
+      const timeDiv = document.createElement('div');
+      timeDiv.className = 'slot-time';
+      timeDiv.textContent = slot.heure;
+      wrap.appendChild(timeDiv);
+
+      if (slot.type === 'pause' || !slot.lien) {
+        const card = document.createElement('div');
+        card.className = (slot.type === 'pause') ? 'slot-card break' : 'slot-card';
+        card.innerHTML = '<h3>' + slot.titre + '</h3>';
+        wrap.appendChild(card);
+      } else {
+        const info = TYPE_MAP[slot.type] || TYPE_MAP.conf;
+        const a = document.createElement('a');
+        a.href = slot.lien;
+        a.className = 'slot-card';
+        a.innerHTML =
+          '<span class="slot-type ' + info.cls + '">' + info.label + '</span>' +
+          '<span class="slot-arrow">&#8594;</span>' +
+          '<h3>' + slot.titre + '</h3>' +
+          '<div class="speaker">' + slot.intervenant + '</div>';
+        wrap.appendChild(a);
+      }
+      container.appendChild(wrap);
+    });
+
+    /* trigger fade-in for newly-added elements */
+    container.querySelectorAll('.fade-up').forEach(el => {
+      if (window._fadeObserver) {
+        window._fadeObserver.observe(el);
+      } else {
+        el.classList.add('visible'); /* fallback: show immediately */
+      }
+    });
+  }
+
+  /* ── Build carousel (image-only, 1080×1350) ── */
+  function buildCarousel(slots) {
+    const interventions = slots.filter(s => s.type !== 'pause');
+    const track = document.getElementById('carouselTrack');
+    const dotsWrap = document.getElementById('carouselDots');
+    track.innerHTML = '';
+    dotsWrap.innerHTML = '';
+
+    if (!interventions.length) {
+      track.innerHTML = '<p style="color:rgba(255,255,255,.35);padding:2rem 3rem;font-size:.9rem;">Aucune intervention disponible.</p>';
+      return;
+    }
+
+    interventions.forEach((slot, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide' + (slot.lien ? ' clickable' : '');
+
+      if (slot.image) {
+        const img = document.createElement('img');
+        img.src = '../' + slot.image;
+        img.alt = slot.titre;
+        img.loading = 'lazy';
+        img.onerror = function() {
+          const ph = document.createElement('div');
+          ph.className = 'carousel-slide-placeholder';
+          ph.innerHTML = '<span class="ph-icon">🖼</span>Image à venir';
+          this.parentElement.replaceChild(ph, this);
+        };
+        slide.appendChild(img);
+      } else {
+        slide.innerHTML = '<div class="carousel-slide-placeholder"><span class="ph-icon">🖼</span>Image à venir</div>';
+      }
+
+      if (slot.lien) {
+        const href = slot.lien;
+        slide.addEventListener('click', () => { window.location.href = href; });
+      }
+
+      track.appendChild(slide);
+
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Intervention ' + (i + 1));
+      dot.dataset.idx = String(i);
+      dotsWrap.appendChild(dot);
+    });
+
+    initCarousel(interventions.length);
+  }
+
+  /* ── Carousel controller ── */
+  function initCarousel(count) {
+    const track   = document.getElementById('carouselTrack');
+    const dotsWrap = document.getElementById('carouselDots');
+    let current = 0;
+
+    function sw() {
+      const slide = track.querySelector('.carousel-slide');
+      if (!slide) return 0;
+      return slide.offsetWidth + (parseFloat(getComputedStyle(track).gap) || 24);
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, count - 1));
+      track.style.transform = 'translateX(-' + (current * sw()) + 'px)';
+      dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    dotsWrap.addEventListener('click', e => {
+      if (e.target.classList.contains('carousel-dot')) goTo(Number(e.target.dataset.idx));
+    });
+    document.getElementById('carouselPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('carouselNext').addEventListener('click', () => goTo(current + 1));
+
+    /* swipe */
+    let tx = 0;
+    track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    window.addEventListener('resize', () => goTo(current));
+  }
+
+  /* ── Fetch & render ── */
+  function run(text) {
+    const slots = parseCSV(text);
+    buildTimetable(slots);
+    buildCarousel(slots);
+  }
+
+  fetch(CSV_URL)
+    .then(r => { if (!r.ok) throw new Error('CSV introuvable (' + r.status + ')'); return r.text(); })
+    .then(text => {
+      /* wait for DOMContentLoaded (and thus _fadeObserver) before building */
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => run(text));
+      } else {
+        run(text);
+      }
+    })
+    .catch(err => {
+      document.getElementById('timetable').innerHTML =
+        '<div class="timetable-loading" style="color:#e55;">' +
+        'Impossible de charger le programme&nbsp;: <em>' + err.message + '</em>.<br>' +
+        'Assurez-vous que <code>programme.csv</code> est à la racine du site et que le serveur autorise le fetch (pas de file://).' +
+        '</div>';
+      document.getElementById('carouselTrack').innerHTML =
+        '<p style="color:rgba(255,255,255,.35);padding:2rem 3rem;font-size:.9rem;">Programme non disponible.</p>';
+    });
+  </script>
 </body>
 </html>
