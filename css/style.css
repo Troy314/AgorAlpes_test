@@ -69,6 +69,7 @@ body{
   background:var(--paper);color:var(--ink);
   font-size:17px;line-height:1.7;overflow-x:hidden;font-weight:400;
 }
+p{text-align:justify;}
 h1,h2,h3,h4,h5{font-family:'Gilroy',sans-serif;font-weight:900;line-height:1.1;color:var(--ink);}
 
 /* ── NAV ── */
@@ -405,8 +406,11 @@ footer{background:var(--azur-fonce);color:rgba(255,255,255,.5);padding:3.5rem cl
 
 /* responsive */
 @media(max-width:900px){
-  .nav-links{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--azur-fonce);flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index:99;}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--azur-fonce);flex-direction:column;align-items:stretch;gap:0;z-index:999;border-top:1px solid rgba(255,255,255,.08);box-shadow:0 8px 24px rgba(0,0,0,.35);}
   .nav-links.open{display:flex;}
+  .nav-links li{width:100%;}
+  .nav-links a{display:block;padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.06);font-size:1rem;}
+  .nav-links .nav-cta{margin:1rem 1.5rem 1.25rem;text-align:center;border-bottom:none;border-radius:8px;}
   .nav-burger{display:flex;}
   .hero-inner{grid-template-columns:1fr;gap:2.5rem;}
   .hero-visual{order:-1;}
