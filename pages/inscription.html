@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription · Agora des Sciences</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-root-prefix="../">
+  <div id="nav-root"></div>
+
+  <main class="page">
+
+    <!-- HEADER -->
+    <section style="background:var(--azur-fonce);color:#fff;padding:calc(var(--nav-h) + 3.5rem) clamp(1.5rem,5vw,3rem) 3.5rem;position:relative;overflow:hidden;">
+      <div style="position:absolute;right:-60px;top:-60px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(255,162,90,.15),transparent 70%);"></div>
+      <div class="section-inner" style="position:relative;z-index:1;">
+        <span class="section-label">Rejoindre l'événement</span>
+        <h1 class="section-title" style="color:#fff;font-size:clamp(2.2rem,5vw,3.8rem);">Inscription</h1>
+        <p style="color:rgba(255,255,255,.65);font-size:1.05rem;max-width:560px;line-height:1.8;font-weight:300;">
+          L'Agora des Sciences est gratuite et ouverte à toutes et tous. 
+          Merci de vous inscrire pour nous permettre d'organiser au mieux la journée.
+        </p>
+      </div>
+    </section>
+
+    <!-- INSCRIPTION LAYOUT -->
+    <section>
+      <div class="section-inner">
+        <div class="inscription-layout">
+
+          <!-- LEFT: Infos -->
+          <div class="fade-up">
+            <span class="section-label">Avant de vous inscrire</span>
+            <div class="accent-bar"></div>
+            <h2 class="section-title" style="font-size:1.8rem;">Ce qu'il faut savoir</h2>
+
+            <div class="inscription-info">
+              <h3>📅 Date & lieu</h3>
+              <p>La date et le lieu seront confirmés prochainement. Votre inscription vous permettra de recevoir toutes les informations dès qu'elles seront disponibles.</p>
+
+              <h3>🎟️ Inscription gratuite</h3>
+              <p>L'événement est entièrement gratuit. L'inscription est néanmoins obligatoire pour nous aider à dimensionner l'accueil, les repas et les espaces.</p>
+
+              <h3>✅ Ce que vous recevrez</h3>
+              <ul class="checklist">
+                <li>Confirmation de votre inscription par e-mail</li>
+                <li>Rappel avec les informations pratiques (lieu, horaires)</li>
+                <li>Programme définitif avant l'événement</li>
+                <li>Accès à toutes les sessions et activités de la journée</li>
+                <li>Déjeuner et pauses café inclus</li>
+              </ul>
+
+              <h3>📋 Le formulaire</h3>
+              <p>Le formulaire ci-contre est hébergé sur Framaforms, une plateforme libre et respectueuse de vos données. Il vous demandera quelques informations de base pour préparer au mieux votre accueil.</p>
+            </div>
+
+            <!-- Bloc contact -->
+            <div style="background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-top:1rem;">
+              <h4 style="font-family:'Nunito',sans-serif;font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem;">Une question ?</h4>
+              <p style="font-size:.875rem;color:var(--mid);font-weight:300;margin-bottom:.8rem;">Contactez-nous si vous rencontrez un problème ou avez besoin d'informations supplémentaires.</p>
+              <a href="contact.html" class="btn btn-outline" style="font-size:.82rem;padding:.6rem 1.2rem;">Nous contacter</a>
+            </div>
+          </div>
+
+          <!-- RIGHT: Formulaire Framaforms -->
+          <div class="fade-up" style="transition-delay:.15s;">
+            <div class="form-wrapper">
+              <div style="background:var(--azur-fonce);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.8rem;">
+                <div style="width:10px;height:10px;border-radius:50%;background:var(--orange);"></div>
+                <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:.8rem;color:#fff;text-transform:uppercase;letter-spacing:.08em;">Formulaire d'inscription</span>
+              </div>
+              <iframe
+                src="https://framaforms.org/inscription-agora-des-sciences-1778251071"
+                title="Formulaire d'inscription — Agora des Sciences"
+                height="900"
+                loading="lazy"
+                allow="fullscreen"
+              ></iframe>
+            </div>
+            <p style="font-size:.78rem;color:var(--mid);margin-top:.8rem;text-align:center;font-weight:300;">
+              Formulaire hébergé sur <a href="https://framaforms.org" target="_blank" style="color:var(--orange);">Framaforms</a> — Données protégées, aucune publicité.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-root"></div>
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
