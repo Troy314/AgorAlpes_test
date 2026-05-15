@@ -53,6 +53,7 @@ function getFooter(rootPrefix = '') {
   <div class="footer-inner" style="padding-bottom:0; border-bottom:none;">
     <div class="footer-bottom" style="width:100%;">
       <span>© 2026 AurorAlpes · Grenoble</span>
+      <a href="${rootPrefix}pages/mentions-legales.html" style="color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:underline;text-underline-offset:3px;">Mentions légales</a>
     </div>
   </div>
 </footer>`;

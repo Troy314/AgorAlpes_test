@@ -558,3 +558,49 @@ footer{background:var(--azur-fonce);color:rgba(255,255,255,.5);padding:3.5rem cl
   padding-top: .8rem;
   display: block;
 }
+
+/* ════════════════════════════════════════
+   MENTIONS LÉGALES
+════════════════════════════════════════ */
+.mentions-block {
+  margin-bottom: 2.8rem;
+}
+.mentions-block h2 {
+  font-family: 'Gilroy', 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--azur-fonce);
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--border);
+}
+.mentions-block p {
+  color: var(--mid);
+  line-height: 1.8;
+  margin-bottom: .8rem;
+  font-weight: 300;
+}
+.mentions-block ul {
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0 .8rem;
+}
+.mentions-block ul li {
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 1.8;
+  padding-left: 1.2rem;
+  position: relative;
+}
+.mentions-block ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+}
+.mentions-block a {
+  color: var(--azur-fonce);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.mentions-block a:hover { color: var(--orange); }
