@@ -11,7 +11,6 @@ function getNav(rootPrefix = '') {
       <li><a href="${rootPrefix}index.html">Accueil</a></li>
       <li><a href="${rootPrefix}pages/a-propos.html">À propos</a></li>
       <li><a href="${rootPrefix}pages/programme.html">Programme</a></li>
-      <li><a href="${rootPrefix}pages/inscription.html">Inscription</a></li>
       <li><a href="https://www.auroralpes.fr/">AurorAlpes</a></li>
       <li><a href="${rootPrefix}pages/inscription.html" class="btn btn-primary nav-cta">S'inscrire</a></li>
     </ul>
