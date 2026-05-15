@@ -413,7 +413,8 @@ footer{background:var(--azur-fonce);color:rgba(255,255,255,.5);padding:3.5rem cl
   .nav-links .nav-cta{margin:1rem 1.5rem 1.25rem;text-align:center;border-bottom:none;border-radius:8px;}
   .nav-burger{display:flex;}
   .hero-inner{grid-template-columns:1fr;gap:2.5rem;}
-  .hero-visual{order:-1;}
+  .hero-visual{order:1;}
+  .hero-content{order:-1;}
   .event-card-float{max-width:100%;}
   .about-grid,.inscription-layout,.contact-grid{grid-template-columns:1fr;}
   .stats-row{grid-template-columns:1fr 1fr;}
