@@ -308,7 +308,7 @@ section{padding:clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,3rem);}
 .contrib-header-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
 .contrib-back{
   display:inline-flex;align-items:center;gap:.5rem;
-  color:rgba(255,255,255,.5);text-decoration:none;font-size:.85rem;
+  color:var(--azur-fonce);text-decoration:none;font-size:.85rem;
   font-family:'Gilroy',sans-serif;font-weight:700;margin-bottom:2rem;
   transition:color .2s;letter-spacing:.04em;text-transform:uppercase;
 }
