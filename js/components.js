@@ -27,10 +27,10 @@ function getFooter(rootPrefix = '') {
   <div class="footer-bottom" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; padding:1.2rem 2rem;">
     <span>© 2026 AurorAlpes · Grenoble &nbsp;·&nbsp; <a href="${rootPrefix}pages/mentions-legales.html" style="color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:underline;text-underline-offset:3px;">Mentions légales</a></span>
     <ul class="footer-contacts" style="display:flex; flex-direction:row; gap:1.2rem; list-style:none; padding:0; margin:0;">
-      <li><a href="mailto:contact@auroralpes.fr" aria-label="Email"><img src="${rootPrefix}media/envelope.svg" alt="Email" width="22" /></a></li>
-      <li><a href="https://bsky.app/profile/auroralpes.bsky.social" target="_blank" aria-label="Bluesky"><img src="${rootPrefix}media/bluesky.svg" alt="Bluesky" width="22" /></a></li>
-      <li><a href="https://www.linkedin.com/company/auroralpes" target="_blank" aria-label="LinkedIn"><img src="${rootPrefix}media/linkedin.svg" alt="LinkedIn" width="22" /></a></li>
-      <li><a href="https://www.instagram.com/auroralpes" target="_blank" aria-label="Instagram"><img src="${rootPrefix}media/square-instagram.svg" alt="Instagram" width="22" /></a></li>
+      <li><a href="mailto:contact@auroralpes.fr" aria-label="Email"><img src="${rootPrefix}media/envelope.svg" alt="Email" style="width:2em;height:2em;vertical-align:middle;" /></a></li>
+      <li><a href="https://bsky.app/profile/auroralpes.bsky.social" target="_blank" aria-label="Bluesky"><img src="${rootPrefix}media/bluesky.svg" alt="Bluesky" style="width:2em;height:2em;vertical-align:middle;" /></a></li>
+      <li><a href="https://www.linkedin.com/company/auroralpes" target="_blank" aria-label="LinkedIn"><img src="${rootPrefix}media/linkedin.svg" alt="LinkedIn" style="width:2em;height:2em;vertical-align:middle;" /></a></li>
+      <li><a href="https://www.instagram.com/auroralpes" target="_blank" aria-label="Instagram"><img src="${rootPrefix}media/square-instagram.svg" alt="Instagram" style="width:2em;height:2em;vertical-align:middle;" /></a></li>
     </ul>
   </div>
 </footer>`;
