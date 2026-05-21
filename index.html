@@ -11,6 +11,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="media/favicon/apple-touch-icon.png">
   <link rel="manifest" href="media/favicon/site.webmanifest">
+  <link rel="preload" as="image" href="media/banner.webp" type="image/webp">
+  <link rel="preload" as="image" href="media/banner.jpg" imagesrcset="media/banner.webp" imagesizes="100vw">
 </head>
 <body data-root-prefix="">
   <div id="nav-root"></div>
@@ -20,7 +22,10 @@
     <!-- ── HERO ── -->
     <section class="hero">
       <div class="hero-bg">
-        <img src="media/banner.jpg" alt="Agora des Sciences" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.55;">
+        <picture>
+          <source srcset="media/banner.webp" type="image/webp">
+          <img src="media/banner.jpg" alt="Agora des Sciences" width="1920" height="1159" loading="eager" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.55;">
+        </picture>
       </div>
       <div class="hero-inner">
         <div class="hero-content">
@@ -74,7 +79,10 @@
             </div>
           </div>
           <div class="fade-up">
-          <img src="media/affiche.png" alt="affiche" style="width:100%;height:100%">
+          <picture>
+            <source srcset="media/affiche.webp" type="image/webp">
+            <img src="media/affiche.png" alt="affiche" width="1080" height="1350" loading="lazy" style="width:100%;height:100%">
+          </picture>
           </div>
         </div>
       </div>
@@ -170,17 +178,24 @@
       slide.className = 'carousel-slide' + (slot.lien ? ' clickable' : '');
 
       if (slot.image) {
+        const webpSrc = slot.image.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+        const picture = document.createElement('picture');
+        const source = document.createElement('source');
+        source.srcset = webpSrc;
+        source.type = 'image/webp';
         const img = document.createElement('img');
-        img.src = slot.image;   /* index.html is at root → no ../ */
+        img.src = slot.image;
         img.alt = slot.titre;
         img.loading = 'lazy';
         img.onerror = function() {
           const ph = document.createElement('div');
           ph.className = 'carousel-slide-placeholder';
           ph.innerHTML = '<span class="ph-icon">🖼</span>Image à venir';
-          this.parentElement.replaceChild(ph, this);
+          picture.parentElement.replaceChild(ph, picture);
         };
-        slide.appendChild(img);
+        picture.appendChild(source);
+        picture.appendChild(img);
+        slide.appendChild(picture);
       } else {
         slide.innerHTML = '<div class="carousel-slide-placeholder"><span class="ph-icon">🖼</span>Image à venir</div>';
       }
@@ -242,7 +257,7 @@
     buildCarousel(slots);
   }
 
-  fetch('programme.csv')
+  fetch('programme.csv', { priority: 'high' })
     .then(r => { if (!r.ok) throw new Error('CSV introuvable (' + r.status + ')'); return r.text(); })
     .then(text => {
       if (document.readyState === 'loading') {
